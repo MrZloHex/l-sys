@@ -6,3 +6,6 @@ venv/
 
 ### git ###
 gt.sh
+
+### cache ###
+src/__pycache__/
