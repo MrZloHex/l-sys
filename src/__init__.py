@@ -1,1 +1,1 @@
-from src.Main import l_sys_main
+from src.draw import l_sys_main
