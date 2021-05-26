@@ -1,0 +1,8 @@
+### venv ###
+venv/
+
+### pycharm ###
+.idea/
+
+### git ###
+gt.sh
