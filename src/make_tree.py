@@ -1,8 +1,11 @@
 def make_sequence(axiom: str, iterations: int):
     for i in range(iterations):
+        print(axiom)
+        instr = ""
         for char in axiom:
-            ap = lang(char)
-            print(ap)
+            instr += lang(char)
+        axiom = instr
+
 
 def lang(key: str) -> str:
     lang = {
@@ -13,9 +16,8 @@ def lang(key: str) -> str:
 
 
 
-
 def instr() -> tuple:
     init_str = "a"
-    make_sequence(init_str, 5)
+    make_sequence(init_str, 6)
     instr = ("f", "+")
     return instr
