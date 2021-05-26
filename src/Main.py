@@ -6,7 +6,8 @@ def init():
     draw.color("black", "white")
 
 
-def main():
+def l_sys_main():
+    init()
     draw.begin_fill()
     while True:
         draw.forward(200)
@@ -16,7 +17,3 @@ def main():
     draw.end_fill()
     draw.done()
 
-
-if __name__ == '__main__':
-    init()
-    main()
