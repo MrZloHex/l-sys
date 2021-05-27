@@ -1,13 +1,11 @@
-from l_sys import L_Sys
+from l_sys import LSys
 import time
 import sys
 
 
 def main():
-    l_sys = L_Sys(l_sys="coch", iterations=3)
-    seq = l_sys.make_sequnce()
-    for s in seq:
-        print(s)
+    l_sys = LSys(l_sys="coch", iterations=4)
+    l_sys.draw_sequence()
     time.sleep(2)
     sys.exit(0)
 

@@ -1,1 +1,1 @@
-from l_sys.l_systems import L_Sys
+from l_sys.LSys import LSys
