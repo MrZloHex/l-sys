@@ -8,4 +8,4 @@ venv/
 gt.sh
 
 ### cache ###
-src/__pycache__/
+l_sys/__pycache__/

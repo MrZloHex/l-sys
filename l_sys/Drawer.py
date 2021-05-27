@@ -1,5 +1,5 @@
 import turtle as draw
-from src import make_tree
+from l_sys.make_tree import make_sequence
 
 def lang(instr: str):
     if instr == "f":
@@ -19,13 +19,15 @@ def init():
     draw.screensize(400, 250, "black")
     draw.setposition(-400, -250)
     #draw.left(90)
-    draw.speed(150)
+    draw.speed(50)
     draw.color("white", "black")
     draw.hideturtle()
 
 
 def l_sys_main():
     init()
-    instr = make_tree.instr(4)
+    instr = make_sequence(4)
     draw_tree(instr)
+    draw.done()
 
+class Drawer

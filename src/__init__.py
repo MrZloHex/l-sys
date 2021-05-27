@@ -1,1 +1,0 @@
-from src.draw import l_sys_main
