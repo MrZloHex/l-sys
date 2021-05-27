@@ -19,13 +19,13 @@ class Drawer:
         #}
         #tree_types[self._l_sys]
          if self._l_sys == "curve_coch":
-             for seq in sequence[0]:
+             for seq in sequence:
                  self._draw_coch(seq)
          elif self._l_sys == "triangle_serpinskii":
-             for seq in sequence[0]:
+             for seq in sequence:
                  self._draw_triangle_serp(seq)
          elif self._l_sys == "curve_serpinskii":
-             for seq in sequence[0]:
+             for seq in sequence:
                  self._draw_curve_serp(seq)
 
     @staticmethod
