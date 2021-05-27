@@ -2,33 +2,30 @@ import turtle as draw
 from src import make_tree
 
 def lang(instr: str):
-    if instr == "a":
+    if instr == "f":
         draw.forward(10)
-    elif instr == "b":
-        draw.right(90)
-        draw.forward(10)
+    elif instr == "+":
         draw.left(90)
-        draw.forward(10)
+    elif instr == "-":
+        draw.right(90)
 
 
 def draw_tree(sequence: str):
-    pos = draw.position()
     for instruction in sequence:
         lang(instruction)
-        draw.setposition(pos)
 
 
 def init():
     draw.screensize(400, 250, "black")
-    draw.setposition(0, -250)
-    draw.left(90)
-    draw.speed(15)
+    draw.setposition(-400, -250)
+    #draw.left(90)
+    draw.speed(150)
     draw.color("white", "black")
+    draw.hideturtle()
 
 
 def l_sys_main():
     init()
-    draw.begin_fill()
-    for instr in make_tree.instr(5):
-        draw_tree(instr)
-    draw.end_fill()
+    instr = make_tree.instr(4)
+    draw_tree(instr)
+
