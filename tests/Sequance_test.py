@@ -17,7 +17,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(result, "f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f-gggg+f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f+gggg-f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f-gggggggg-gggggggg")
 
     def test_CurveSerpin(self):
-        result = self.curve_serp.make_seq(iterations=3)
+        result = self.curve_serp.make_seq(iterations=3)[0]
+        self.assertEqual(result, "b-a-b+a+b+a+b-a-b-a+b+a-b-a-b-a+b+a-b-a-b+a+b+a+b-a-b")
 
 
 if __name__ == '__main__':
