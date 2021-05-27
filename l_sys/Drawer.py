@@ -24,6 +24,9 @@ class Drawer:
          elif self._l_sys == "triangle_serpinskii":
              for seq in sequence[0]:
                  self._draw_triangle_serp(seq)
+         elif self._l_sys == "curve_serpinskii":
+             for seq in sequence[0]:
+                 self._draw_curve_serp(seq)
 
     @staticmethod
     def _draw_coch(seq: str) -> NoReturn:
@@ -42,3 +45,12 @@ class Drawer:
             draw.right(120)
         elif seq == "-":
             draw.left(120)
+
+    @staticmethod
+    def _draw_curve_serp(seq: str) -> NoReturn:
+        if seq in ("a", "b"):
+            draw.forward(10)
+        elif seq == "+":
+            draw.left(60)
+        elif seq == "-":
+            draw.right(60)
