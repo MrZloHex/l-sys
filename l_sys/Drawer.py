@@ -8,10 +8,11 @@ class Drawer:
         draw.screensize(400, 250, "black")
         draw.setposition(-400, -250)
         # draw.left(90)
-        draw.speed(5000)
+        draw.speed(1)
         draw.color("white", "black")
         draw.hideturtle()
         self._l_sys = l_sys
+        self.stack = LifoQueue(maxsize=50)
 
     def draw_tree(self, sequence: str) -> NoReturn:
         #tree_types = {
@@ -72,15 +73,19 @@ class Drawer:
         elif seq == "-":
             draw.right(90)
 
-    @staticmethod
-    def _draw_pifs_tree(seq: str) -> NoReturn:
-        stack = draw.position()
+    def _draw_pifs_tree(self, seq: str) -> NoReturn:
+
         if seq in ("1", "0"):
             draw.forward(10)
         elif seq == "[":
-            stack = draw.position()
+            self.stack.put((draw.position(), draw.heading()))
             draw.right(45)
         elif seq == "]":
+            pos = self.stack.get()
+            draw.penup()
+            draw.goto(pos[0])
+            draw.pendown()
+            draw.right(pos[1])
             draw.left(45)
-            draw.goto(stack)
-            draw.left(45)
+
+
