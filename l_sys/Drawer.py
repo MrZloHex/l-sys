@@ -1,5 +1,6 @@
 import turtle as draw
 from typing import NoReturn
+from queue import LifoQueue
 
 
 class Drawer:
@@ -18,18 +19,22 @@ class Drawer:
         #    'triangle_serpinskii': [self._draw_triangle_serp(seq) for seq in sequence[0]],
         #}
         #tree_types[self._l_sys]
-         if self._l_sys == "curve_coch":
-             for seq in sequence:
-                 self._draw_coch(seq)
-         elif self._l_sys == "triangle_serpinskii":
-             for seq in sequence:
-                 self._draw_triangle_serp(seq)
-         elif self._l_sys == "curve_serpinskii":
-             for seq in sequence:
-                 self._draw_curve_serp(seq)
-         elif self._l_sys == "curve_drakon":
-             for seq in sequence:
-                 self._draw_curve_drakon(seq)
+        if self._l_sys == "curve_coch":
+            for seq in sequence:
+                self._draw_coch(seq)
+        elif self._l_sys == "triangle_serpinskii":
+            for seq in sequence:
+                self._draw_triangle_serp(seq)
+        elif self._l_sys == "curve_serpinskii":
+            for seq in sequence:
+               self._draw_curve_serp(seq)
+        elif self._l_sys == "curve_drakon":
+            for seq in sequence:
+                self._draw_curve_drakon(seq)
+        elif self._l_sys == "pifagors_tree":
+            for seq in sequence:
+                self._draw_pifs_tree(seq)
+
 
     @staticmethod
     def _draw_coch(seq: str) -> NoReturn:
@@ -66,3 +71,16 @@ class Drawer:
             draw.left(90)
         elif seq == "-":
             draw.right(90)
+
+    @staticmethod
+    def _draw_pifs_tree(seq: str) -> NoReturn:
+        stack = draw.position()
+        if seq in ("1", "0"):
+            draw.forward(10)
+        elif seq == "[":
+            stack = draw.position()
+            draw.right(45)
+        elif seq == "]":
+            draw.left(45)
+            draw.goto(stack)
+            draw.left(45)
