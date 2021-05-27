@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
         result = self.curve_coch.make_seq(iterations=2)[0]
         self.assertEqual(result, "f+f-f-f+f+f+f-f-f+f-f+f-f-f+f-f+f-f-f+f+f+f-f-f+f")
 
-    def test_TrianglSerpin(self)
+    def test_TrianglSerpin(self):
         result = self.triang_serp.make_seq(iterations=3)[0]
         self.assertEqual(result, "f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f-gggg+f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f+gggg-f-g+f+g-f-gg+f-g+f+g-f+gg-f-g+f+g-f-gggggggg-gggggggg")
 
