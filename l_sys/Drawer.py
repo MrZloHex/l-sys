@@ -27,6 +27,9 @@ class Drawer:
          elif self._l_sys == "curve_serpinskii":
              for seq in sequence:
                  self._draw_curve_serp(seq)
+         elif self._l_sys == "curve_drakon":
+             for seq in sequence:
+                 self._draw_curve_drakon(seq)
 
     @staticmethod
     def _draw_coch(seq: str) -> NoReturn:
@@ -54,3 +57,12 @@ class Drawer:
             draw.left(60)
         elif seq == "-":
             draw.right(60)
+
+    @staticmethod
+    def _draw_curve_drakon(seq: str) -> NoReturn:
+        if seq == "f":
+            draw.forward(10)
+        elif seq == "+":
+            draw.left(90)
+        elif seq == "-":
+            draw.right(90)
