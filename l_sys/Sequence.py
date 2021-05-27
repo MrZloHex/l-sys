@@ -7,6 +7,17 @@ class Sequence:
             return self._curve_coch(iterations)
         elif self._l_sys == "triangle_serpinskii":
             return self._triangle_serp(iterations)
+        elif self._l_sys == "curve_serpinskii":
+            return self._curve_serp(iterations)
+
+    def _curve_serp(self, iterations: int) -> tuple:
+        axiom = "a"
+        for i in range(iterations):
+            instr = ""
+            for char in axiom:
+                instr += self._lang(char)
+            axiom = instr
+        return (axiom, )
 
     def _triangle_serp(self, iterations: int) -> tuple:
         axiom = "f-g-g"
@@ -27,7 +38,7 @@ class Sequence:
         return (axiom, )
 
     def _lang(self, key: str) -> str:
-        coch_lang = {
+        curve_coch = {
             "f": "f+f-f-f+f",
             "+": "+",
             "-": "-"
@@ -38,7 +49,15 @@ class Sequence:
             "+": "+",
             "-": "-"
         }
+        curve_serp = {
+            "a": "b-a-b",
+            "b": "a+b+a",
+            "+": "+",
+            "-": "-"
+        }
         if self._l_sys == "curve_coch":
-            return coch_lang[key]
+            return curve_coch[key]
         elif self._l_sys == "triangle_serpinskii":
             return triangle_serp[key]
+        elif self._l_sys == "curve_serpinskii":
+            return curve_serp[key]
