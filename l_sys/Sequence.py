@@ -11,6 +11,17 @@ class Sequence:
             return self._curve_serp(iterations)
         elif self._l_sys == "curve_drakon":
             return self._curve_drakon(iterations)
+        elif self._l_sys == "pifagors_tree":
+            return self._pifagors_tree(iterations)
+
+    def _pifagors_tree(self, iterations: int) -> str:
+        axiom = "0"
+        for i in range(iterations):
+            instr = ""
+            for char in axiom:
+                instr += self._lang(char)
+            axiom = instr
+        return axiom
 
     def _curve_drakon(self, iterations: int) -> str:
         axiom = "fx"
@@ -73,6 +84,12 @@ class Sequence:
             "+": "+",
             "-": "-"
         }
+        pif_tree = {
+            "1": "11",
+            "0": "1[0]0",
+            "[": "[",
+            "]": "]"
+        }
         if self._l_sys == "curve_coch":
             return curve_coch[key]
         elif self._l_sys == "triangle_serpinskii":
@@ -81,3 +98,5 @@ class Sequence:
             return curve_serp[key]
         elif self._l_sys == "curve_drakon":
             return curve_drakon[key]
+        elif self._l_sys == "pifagors_tree":
+            return pif_tree[key]
