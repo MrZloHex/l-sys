@@ -8,7 +8,7 @@ class Drawer:
         draw.screensize(400, 250, "black")
         draw.setposition(-400, -250)
         # draw.left(90)
-        draw.speed(1)
+        draw.speed(1500)
         draw.color("white", "black")
         draw.hideturtle()
         self._l_sys = l_sys
@@ -75,7 +75,6 @@ class Drawer:
             draw.right(90)
 
     def _draw_pifs_tree(self, seq: str) -> NoReturn:
-        print(seq)
         if seq in ("1", "0"):
             draw.forward(10)
         elif seq == "[":
