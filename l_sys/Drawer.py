@@ -4,23 +4,31 @@ from queue import LifoQueue
 
 
 class Drawer:
-    def __init__(self, l_sys: str):
-        draw.screensize(400, 250, "black")
-        draw.setposition(-400, -250)
-        # draw.left(90)
+    def __init__(self, l_sys: str, iterations: int):
+        draw.screensize(400, 400, "black")
+        if l_sys == "pifagors_tree":
+            draw.setposition(0, -250)
+            draw.setheading(90)
+        elif l_sys == "curve_serpinskii":
+            draw.setposition(-400, -250)
+            draw.setheading(60)
+        else:
+            draw.setposition(-400, -200)
+            draw.setheading(0)
+        self._length = 10
         draw.speed(1500)
         draw.color("white", "black")
         draw.hideturtle()
         self._l_sys = l_sys
-        #self.stack = LifoQueue(maxsize=50)
+        # self.stack = LifoQueue(maxsize=50)
         self.stack = []
 
     def draw_tree(self, sequence: str) -> NoReturn:
-        #tree_types = {
+        # tree_types = {
         #    'curve_coch': [self._draw_coch(seq) for seq in sequence[0]],
         #    'triangle_serpinskii': [self._draw_triangle_serp(seq) for seq in sequence[0]],
-        #}
-        #tree_types[self._l_sys]
+        # }
+        # tree_types[self._l_sys]
         if self._l_sys == "curve_coch":
             for seq in sequence:
                 self._draw_coch(seq)
@@ -56,10 +64,9 @@ class Drawer:
         elif seq == "-":
             draw.left(120)
 
-    @staticmethod
-    def _draw_curve_serp(seq: str) -> NoReturn:
+    def _draw_curve_serp(self, seq: str) -> NoReturn:
         if seq in ("a", "b"):
-            draw.forward(10)
+            draw.forward(self._length)
         elif seq == "+":
             draw.left(60)
         elif seq == "-":
@@ -75,8 +82,13 @@ class Drawer:
             draw.right(90)
 
     def _draw_pifs_tree(self, seq: str) -> NoReturn:
-        if seq in ("1", "0"):
-            draw.forward(10)
+        if seq == "1":
+            draw.forward(self._length)
+        elif seq == "0":
+            draw.pencolor("green")
+            draw.forward(self._length)
+            draw.pencolor("white")
+
         elif seq == "[":
             self.stack.append(draw.position())
             self.stack.append(draw.heading())

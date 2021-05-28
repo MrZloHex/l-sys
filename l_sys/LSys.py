@@ -12,5 +12,5 @@ class LSys:
         return seq.make_seq(self._iterations)
 
     def draw_sequence(self):
-        drawer = Drawer(l_sys=self._l_sys)
+        drawer = Drawer(l_sys=self._l_sys, iterations=self._iterations)
         drawer.draw_tree(self.make_sequnce())
