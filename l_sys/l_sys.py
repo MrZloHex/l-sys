@@ -1,58 +1,59 @@
-class Sequence:
-    def __init__(self, l_sys: str):
+class LSys:
+    def __init__(self, l_sys: str, iterations: int):
         self._l_sys = l_sys
+        self._iterations = iterations
 
-    def make_seq(self, iterations: int) -> str:
+    def make_seq(self) -> str:
         if self._l_sys == "curve_coch":
-            return self._curve_coch(iterations)
+            return self._curve_coch()
         elif self._l_sys == "triangle_serpinskii":
-            return self._triangle_serp(iterations)
+            return self._triangle_serp()
         elif self._l_sys == "curve_serpinskii":
-            return self._curve_serp(iterations)
+            return self._curve_serp()
         elif self._l_sys == "curve_drakon":
-            return self._curve_drakon(iterations)
+            return self._curve_drakon()
         elif self._l_sys == "pifagors_tree":
-            return self._pifagors_tree(iterations)
+            return self._pifagors_tree()
 
-    def _pifagors_tree(self, iterations: int) -> str:
+    def _pifagors_tree(self) -> str:
         axiom = "0"
-        for i in range(iterations):
+        for i in range(self._iterations):
             instr = ""
             for char in axiom:
                 instr += self._lang(char)
             axiom = instr
         return axiom
 
-    def _curve_drakon(self, iterations: int) -> str:
+    def _curve_drakon(self) -> str:
         axiom = "fx"
-        for i in range(iterations):
+        for i in range(self._iterations):
             instr = ""
             for char in axiom:
                 instr += self._lang(char)
             axiom = instr
         return axiom
 
-    def _curve_serp(self, iterations: int) -> str:
+    def _curve_serp(self) -> str:
         axiom = "a"
-        for i in range(iterations):
+        for i in range(self._iterations):
             instr = ""
             for char in axiom:
                 instr += self._lang(char)
             axiom = instr
         return axiom
 
-    def _triangle_serp(self, iterations: int) -> str:
+    def _triangle_serp(self) -> str:
         axiom = "f-g-g"
-        for i in range(iterations):
+        for i in range(self._iterations):
             instr = ""
             for char in axiom:
                 instr += self._lang(char)
             axiom = instr
         return axiom
 
-    def _curve_coch(self, iterations: int) -> str:
+    def _curve_coch(self) -> str:
         axiom = "f"
-        for i in range(iterations):
+        for i in range(self._iterations):
             instr = ""
             for char in axiom:
                 instr += self._lang(char)
