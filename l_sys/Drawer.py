@@ -12,7 +12,8 @@ class Drawer:
         draw.color("white", "black")
         draw.hideturtle()
         self._l_sys = l_sys
-        self.stack = LifoQueue(maxsize=50)
+        #self.stack = LifoQueue(maxsize=50)
+        self.stack = []
 
     def draw_tree(self, sequence: str) -> NoReturn:
         #tree_types = {
@@ -74,18 +75,18 @@ class Drawer:
             draw.right(90)
 
     def _draw_pifs_tree(self, seq: str) -> NoReturn:
-
+        print(seq)
         if seq in ("1", "0"):
             draw.forward(10)
         elif seq == "[":
-            self.stack.put((draw.position(), draw.heading()))
+            self.stack.append(draw.position())
+            self.stack.append(draw.heading())
             draw.right(45)
         elif seq == "]":
-            pos = self.stack.get()
             draw.penup()
-            draw.goto(pos[0])
+            draw.setheading(self.stack.pop())
+            draw.setposition(self.stack.pop())
             draw.pendown()
-            draw.right(pos[1])
             draw.left(45)
 
 
