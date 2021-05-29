@@ -10,9 +10,9 @@ class MyTestCase(unittest.TestCase):
         self.curve_dragon = LSys(l_sys="Dragon curve", iterations=4)
         self.bin_tree = LSys(l_sys="Binary tree", iterations=3)
 
-    def test_KockCurve(self):
+    def test_KochCurve(self):
         result = self.curve_koch.make_seq()
-        self.assertEqual(result, "f+f-f-f+f+f+f-f-f+f-f+f-f-f+f-f+f-f-f+f+f+f-f-f+f")  # noqa E501
+        self.assertEqual(result, "+f-f-f+f+f+f-f-f+f-f+f-f-f+f-f+f-f-f+f+f+f-f-f+f")  # noqa E501
 
     def test_TriangleSerp(self):
         result = self.triangle_serp.make_seq()

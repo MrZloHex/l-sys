@@ -13,8 +13,19 @@ class LSys:
         :param iterations: Amount of iterations for final sequence
         :type iterations: int
         """
+        self._sup_sys = (
+            "Koch curve",
+            "Sierpinski triangle",
+            "Sierpinski curve",
+            "Dragon curve",
+            "Binary tree"
+        )
 
-        self._l_sys = l_sys
+        if l_sys in self._sup_sys:
+            self._l_sys = l_sys
+        else:
+            print("There are no such l-system")
+            self._l_sys = "Koch curve"
         self._iterations = iterations
 
     def make_seq(self) -> str:
