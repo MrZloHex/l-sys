@@ -32,7 +32,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_ErrorSys(self):
         self.assertRaises(ValueError, LSys, "qwe", 1)
+        self.assertRaises(ValueError, LSys, "koch curve", 1)
         self.assertRaises(TypeError, LSys, 123, 1)
+        self.assertRaises(TypeError, LSys, True, 1)
+
+    def test_ErrorIter(self):
+        self.assertRaises(ValueError, LSys, "Koch curve", -3)
+        self.assertRaises(ValueError, LSys, "Koch curve", -678)
+        self.assertRaises(TypeError, LSys, "Koch curve", True)
+        self.assertRaises(TypeError, LSys, "Koch curve", "qwe")
 
 
 if __name__ == '__main__':

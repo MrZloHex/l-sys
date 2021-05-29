@@ -13,6 +13,8 @@ class LSys:
         :param iterations: Amount of iterations for final sequence
         :type iterations: int
         """
+
+        # Supporting l-systems
         self._sup_sys = (
             "Koch curve",
             "Sierpinski triangle",
@@ -21,6 +23,7 @@ class LSys:
             "Binary tree"
         )
 
+        # Check name of l-system
         if l_sys in self._sup_sys:
             self._l_sys = l_sys
         else:
@@ -28,7 +31,15 @@ class LSys:
                 raise ValueError('Incorrect name of l-sys')
             else:
                 raise TypeError('Incorrect type of name of l-sys')
-        self._iterations = iterations
+
+        # Check iterations
+        if type(iterations) is int:
+            if iterations > 0:
+                self._iterations = iterations
+            else:
+                raise ValueError('Iterations must be positive number')
+        else:
+            raise TypeError('Incorrect type of iterations')
 
     def make_seq(self) -> str:
         """
