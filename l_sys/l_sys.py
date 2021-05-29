@@ -4,6 +4,11 @@ class LSys:
         self._iterations = iterations
 
     def make_seq(self) -> str:
+        """
+
+        :return:
+        :rtype: str
+        """
         if self._l_sys == "curve_coch":
             return self._curve_coch()
         elif self._l_sys == "triangle_serpinskii":
