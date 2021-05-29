@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_KochCurve(self):
         result = self.curve_koch.make_seq()
-        self.assertEqual(result, "+f-f-f+f+f+f-f-f+f-f+f-f-f+f-f+f-f-f+f+f+f-f-f+f")  # noqa E501
+        self.assertEqual(result, "f+f-f-f+f+f+f-f-f+f-f+f-f-f+f-f+f-f-f+f+f+f-f-f+f")  # noqa E501
 
     def test_TriangleSerp(self):
         result = self.triangle_serp.make_seq()
@@ -29,6 +29,10 @@ class MyTestCase(unittest.TestCase):
     def test_BinTree(self):
         result = self.bin_tree.make_seq()
         self.assertEqual(result, "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0")
+
+    def test_ErrorSys(self):
+        self.assertRaises(ValueError, LSys, "qwe", 1)
+        self.assertRaises(TypeError, LSys, 123, 1)
 
 
 if __name__ == '__main__':

@@ -24,8 +24,10 @@ class LSys:
         if l_sys in self._sup_sys:
             self._l_sys = l_sys
         else:
-            print("There are no such l-system")
-            self._l_sys = "Koch curve"
+            if type(l_sys) is str:
+                raise ValueError('Incorrect name of l-sys')
+            else:
+                raise TypeError('Incorrect type of name of l-sys')
         self._iterations = iterations
 
     def make_seq(self) -> str:
