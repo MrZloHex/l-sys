@@ -25,15 +25,15 @@ class LSys:
         :rtype: str
         """
 
-        if self._l_sys == "curve_coch":
+        if self._l_sys == "Koch curve":
             return self._curve_coch()
-        elif self._l_sys == "triangle_serpinskii":
+        elif self._l_sys == "Sierpinski triangle":
             return self._triangle_serp()
-        elif self._l_sys == "curve_serpinskii":
+        elif self._l_sys == "Sierpinski curve":
             return self._curve_serp()
-        elif self._l_sys == "curve_drakon":
+        elif self._l_sys == "Dragon curve":
             return self._curve_drakon()
-        elif self._l_sys == "pifagors_tree":
+        elif self._l_sys == "Binary tree":
             return self._pifagors_tree()
 
     def _pifagors_tree(self) -> str:
@@ -125,43 +125,43 @@ class LSys:
         :return: transformed instruction
         :rtype: str
         """
-        curve_coch = {
+        koch_curve = {
             "f": "f+f-f-f+f",
             "+": "+",
             "-": "-"
         }
-        triangle_serp = {
+        serp_triangle = {
             "f": "f-g+f+g-f",
             "g": "gg",
             "+": "+",
             "-": "-"
         }
-        curve_serp = {
+        serp_curve = {
             "a": "b-a-b",
             "b": "a+b+a",
             "+": "+",
             "-": "-"
         }
-        curve_drakon = {
+        dragon_curve = {
             "x": "x+yf+",
             "y": "-fx-y",
             "f": "f",
             "+": "+",
             "-": "-"
         }
-        pif_tree = {
+        bin_tree = {
             "1": "11",
             "0": "1[0]0",
             "[": "[",
             "]": "]"
         }
-        if self._l_sys == "curve_coch":
-            return curve_coch[key]
-        elif self._l_sys == "triangle_serpinskii":
-            return triangle_serp[key]
-        elif self._l_sys == "curve_serpinskii":
-            return curve_serp[key]
-        elif self._l_sys == "curve_drakon":
-            return curve_drakon[key]
-        elif self._l_sys == "pifagors_tree":
-            return pif_tree[key]
+        if self._l_sys == "Koch curve":
+            return koch_curve[key]
+        elif self._l_sys == "Sierpinski triangle":
+            return serp_triangle[key]
+        elif self._l_sys == "Sierpinski curve":
+            return serp_curve[key]
+        elif self._l_sys == "Dragon curve":
+            return dragon_curve[key]
+        elif self._l_sys == "Binary tree":
+            return bin_tree[key]
