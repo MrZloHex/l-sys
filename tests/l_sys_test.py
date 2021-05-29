@@ -2,7 +2,7 @@ import unittest
 from l_sys.l_sys import LSys
 
 
-class MyTestCase(unittest.TestCase):
+class TestLSys(unittest.TestCase):
     def setUp(self) -> None:
         self.curve_koch = LSys(l_sys="Koch curve", iterations=2)
         self.triangle_serp = LSys(l_sys="Sierpinski triangle", iterations=3)
