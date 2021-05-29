@@ -26,17 +26,17 @@ class LSys:
         """
 
         if self._l_sys == "Koch curve":
-            return self._curve_coch()
+            return self._curve_koch()
         elif self._l_sys == "Sierpinski triangle":
             return self._triangle_serp()
         elif self._l_sys == "Sierpinski curve":
             return self._curve_serp()
         elif self._l_sys == "Dragon curve":
-            return self._curve_drakon()
+            return self._curve_dragon()
         elif self._l_sys == "Binary tree":
-            return self._pifagors_tree()
+            return self._binary_tree()
 
-    def _pifagors_tree(self) -> str:
+    def _binary_tree(self) -> str:
         """
         Making sequence for binary (Pythagoras) tree
 
@@ -52,7 +52,7 @@ class LSys:
             axiom = instr
         return axiom
 
-    def _curve_drakon(self) -> str:
+    def _curve_dragon(self) -> str:
         """
         Making sequence for dragon curve
 
@@ -100,7 +100,7 @@ class LSys:
             axiom = instr
         return axiom
 
-    def _curve_coch(self) -> str:
+    def _curve_koch(self) -> str:
         """
         Making sequence for Koch curve
 
