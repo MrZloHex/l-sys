@@ -2,6 +2,20 @@ class LSys:
     """
     Instantiate a l-system sequence maker
 
+    Instructions explained:
+        'f', 'g' - draw single section
+        'x', 'y' - optional variables for correct formatting l-system
+        '+', '-' - constants to turn in side:
+            '+' - right
+            '-' - left
+
+    Degree of turning for l-system:
+        Koch curve            - 90
+        Dragon curve          - 90
+        Binary tree           - 45
+        Sierpinski triangle   - 120
+        Sierpinski curve      - 60
+
     """
 
     def __init__(self, l_sys: str, iterations: int):
@@ -100,7 +114,7 @@ class LSys:
         :rtype: str
         """
 
-        axiom = "a"
+        axiom = "f"
         for i in range(self._iterations):
             instr = ""
             for char in axiom:
@@ -161,8 +175,8 @@ class LSys:
             "-": "-"
         }
         serp_curve = {
-            "a": "b-a-b",
-            "b": "a+b+a",
+            "f": "g-f-g",
+            "g": "f+g+f",
             "+": "+",
             "-": "-"
         }
@@ -174,8 +188,8 @@ class LSys:
             "-": "-"
         }
         bin_tree = {
-            "1": "11",
-            "0": "1[0]0",
+            "f": "ff",
+            "g": "f[g]g",
             "[": "[",
             "]": "]"
         }
