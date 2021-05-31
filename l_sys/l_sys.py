@@ -6,8 +6,11 @@ class LSys:
         'f', 'g' - draw single section
         'x', 'y' - optional variables for correct formatting l-system
         '+', '-' - constants to turn in side:
-            '+' - right
-            '-' - left
+            '+' - right turn
+            '-' - left turn
+        '[', ']' - constants for work with position and direction of drawer:
+            '[' - push position and direction       !! USE LIFO STACK !!
+            ']' - pop position and direction
 
     Degree of turning for l-system:
         Koch curve            - 90
