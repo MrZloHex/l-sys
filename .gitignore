@@ -11,11 +11,6 @@ gt.sh
 l_sys/__pycache__/
 tests/__pycache__/
 
-### docs ###
-docs/_build/
-docs/_static/
-docs/_templates/
-
 ### drawe ###
 drawer.py
 l-sys.py
