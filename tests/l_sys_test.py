@@ -20,7 +20,7 @@ class TestLSys(unittest.TestCase):
 
     def test_CurveSerp(self):
         result = self.curve_serp.make_seq()
-        self.assertEqual(result, "b-a-b+a+b+a+b-a-b-a+b+a-b-a-b-a+b+a-b-a-b+a+b+a+b-a-b")  # noqa E501
+        self.assertEqual(result, "g-f-g+f+g+f+g-f-g-f+g+f-g-f-g-f+g+f-g-f-g+f+g+f+g-f-g")  # noqa E501
 
     def test_CurveDragon(self):
         result = self.curve_dragon.make_seq()
@@ -28,7 +28,7 @@ class TestLSys(unittest.TestCase):
 
     def test_BinTree(self):
         result = self.bin_tree.make_seq()
-        self.assertEqual(result, "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0")
+        self.assertEqual(result, "ffff[+ff[+f[+g]-g]-f[+g]-g]-ff[+f[+g]-g]-f[+g]-g")  # noqa
 
     def test_ErrorSys(self):
         self.assertRaises(ValueError, LSys, "qwe", 1)

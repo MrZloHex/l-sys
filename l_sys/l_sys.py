@@ -85,7 +85,7 @@ class LSys:
         :rtype: str
         """
 
-        axiom = "0"
+        axiom = "g"
         for i in range(self._iterations):
             instr = ""
             for char in axiom:
@@ -192,9 +192,11 @@ class LSys:
         }
         bin_tree = {
             "f": "ff",
-            "g": "f[g]g",
+            "g": "f[+g]-g",
             "[": "[",
-            "]": "]"
+            "]": "]",
+            "+": "+",
+            "-": "-"
         }
         if self._l_sys == "Koch curve":
             return koch_curve[key]
